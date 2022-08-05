@@ -1,6 +1,8 @@
 package com.example.ivan.recyclerviewwithmultipletypes
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +18,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         dataAdapter.setData(getMockData())
+        val button = findViewById<Button>(R.id.button)
+        button.setOnClickListener {
+            val intent =Intent(this, Slider::class.java)
+            startActivity(intent)
+        }
         findViewById<RecyclerView>(R.id.recyclerView)
             .apply {
                 layoutManager = LinearLayoutManager(this@MainActivity)
